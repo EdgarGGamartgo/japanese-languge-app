@@ -8,6 +8,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text>THIS IS AN APP!</Text>
       <Text>{name}</Text>
       <Button title="Click Me" onPress={() => setName('Gabriel')} />
       <StatusBar style="auto" />
