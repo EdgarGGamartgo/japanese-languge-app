@@ -1,26 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import React from 'react';
+import  { 
+  InputButtonComponent,
+  FlexBoxComponent,
+} from './components/index'
 
 export default function App() {
 
-  const [name, setName] = useState('Edgar')
-
   return (
-    <View style={styles.container}>
-      <Text>THIS IS AN APP!</Text>
-      <Text>{name}</Text>
-      <Button title="Click Me" onPress={() => setName('Gabriel')} />
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <InputButtonComponent />
+      <FlexBoxComponent />
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
