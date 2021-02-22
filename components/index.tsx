@@ -1,2 +1,6 @@
-export { FlexBoxComponent } from './FlexBoxComponent'
-export { InputButtonComponent } from './InputButtonComponent'
+export { FlexBoxComponent } from './Goals/FlexBoxComponent'
+export { InputButtonComponent } from './Goals/InputButtonComponent'
+export { GoalItem } from './Goals/GoalItem'
+export { GoalInput } from './Goals/GoalInput'
+export { GoalSetting } from './Goals/GoalSetting'
+export { GoalList } from './Goals/GoalList'
