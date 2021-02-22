@@ -12,15 +12,15 @@ import { AddGoalHandler } from './../../types/index'
 export const GoalInput = ({ addGoalHandler }: AddGoalHandler) => {
 
     const [enteredGoal, setEnteredGoal] = useState<string>('')
-    const [isModal, setIsModal] = useState<boolean>(false)
+    const [isModal, setIsModal] = useState<boolean>(true)
     const goalInputHandler = (enteredText: string) => {
         setEnteredGoal(enteredText)
     }
 
     return (
-    <Modal
-    transparent={false}
-    visible={isModal}>     
+    // <Modal
+    // transparent={false}
+    // visible={isModal}>     
       <View style={GoalInputStyles.inputContainer}>
         <TextInput 
           value={enteredGoal}
@@ -30,6 +30,6 @@ export const GoalInput = ({ addGoalHandler }: AddGoalHandler) => {
         />
         <Button onPress={() => addGoalHandler(enteredGoal)} title="ADD"/>
       </View>
-    </Modal> 
+    // </Modal> 
     ) 
 }

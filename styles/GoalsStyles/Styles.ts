@@ -11,7 +11,7 @@ export const GoalItemStyles = StyleSheet.create({
         padding: 10,
         backgroundColor: '#ccc',
         borderColor: 'black',
-        boderWidth: 10,
+        borderWidth: 10,
         marginVertical: 10,
     }
 })
