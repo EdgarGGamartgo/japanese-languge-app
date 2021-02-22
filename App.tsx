@@ -2,7 +2,7 @@ import React from 'react';
 
 import  { 
   GoalSetting
-} from './components/index'
+} from './src/components/index'
 
 export default function App() {
 

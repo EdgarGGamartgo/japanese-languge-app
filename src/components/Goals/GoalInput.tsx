@@ -7,7 +7,7 @@ import {
     Alert
 } from 'react-native'
 import { GoalInputStyles } from '../../styles/index'
-import { AddGoalHandler } from './../../types/index'
+import { AddGoalHandler } from '../../types/index'
 
 export const GoalInput = ({ addGoalHandler }: AddGoalHandler) => {
 

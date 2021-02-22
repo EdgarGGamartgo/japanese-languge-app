@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { GoalItem } from './GoalItem'
 
-import { GoalListProps } from './../../types/index'
+import { GoalListProps } from '../../types/index'
 
 /**
  * @author Edgar Gabriel Martinez Gonzalez

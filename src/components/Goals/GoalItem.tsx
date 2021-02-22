@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { Item } from './../../types/index'
+import { Item } from '../../types/index'
 import { GoalItemStyles } from '../../styles/index'
 
 export const GoalItem = ({ id, title, onDelete }: Item) => {

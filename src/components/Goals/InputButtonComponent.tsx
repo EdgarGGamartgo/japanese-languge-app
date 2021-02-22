@@ -9,7 +9,7 @@ import {
   FlatList
 } from 'react-native';
 
-import { Goal } from './../../types/index'
+import { Goal } from '../../types/index'
 
 
 export const InputButtonComponent = () => {

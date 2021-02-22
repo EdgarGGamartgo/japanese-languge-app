@@ -3,9 +3,9 @@ import { View, Modal } from 'react-native';
 import  { 
   GoalInput,
   GoalList
-} from './../index'
+} from '../index'
 import { GoalSettingStyles } from '../../styles/index'
-import { Goal } from './../../types/index'
+import { Goal } from '../../types/index'
 
 export const GoalSetting = () => {
 
