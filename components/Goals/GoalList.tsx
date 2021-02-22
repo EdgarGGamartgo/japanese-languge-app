@@ -6,13 +6,21 @@ import { GoalItem } from './GoalItem'
 
 import { GoalListProps } from './../../types/index'
 
-export const GoalList = ({ CourseGoals }: GoalListProps) => {
+/**
+ * @author Edgar Gabriel Martinez Gonzalez
+ * 
+ * @param GoalListProps: GoalListProps
+ * 
+ * @returns <FlatList>
+ */
+
+export const GoalList = ({ CourseGoals, removeGoal }: GoalListProps) => {
 
   return (
       <FlatList
         keyExtractor={(item, index) => item.myKey} 
         data={CourseGoals}
-        renderItem={itemData => <GoalItem title={itemData.item.value} />}>
+        renderItem={itemData => <GoalItem id={itemData.item.myKey} onDelete={removeGoal} title={itemData.item.value} />}>
       </FlatList>
   );
 }

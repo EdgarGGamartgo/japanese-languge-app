@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import {
     View,
     TextInput,
-    Button 
+    Button,
+    Modal,
+    Alert
 } from 'react-native'
 import { GoalInputStyles } from '../../styles/index'
 import { AddGoalHandler } from './../../types/index'
@@ -10,13 +12,16 @@ import { AddGoalHandler } from './../../types/index'
 export const GoalInput = ({ addGoalHandler }: AddGoalHandler) => {
 
     const [enteredGoal, setEnteredGoal] = useState<string>('')
-
+    const [isModal, setIsModal] = useState<boolean>(false)
     const goalInputHandler = (enteredText: string) => {
         setEnteredGoal(enteredText)
     }
 
     return (
-        <View style={GoalInputStyles.inputContainer}>
+    <Modal
+    transparent={false}
+    visible={isModal}>     
+      <View style={GoalInputStyles.inputContainer}>
         <TextInput 
           value={enteredGoal}
           onChangeText={goalInputHandler}
@@ -25,5 +30,6 @@ export const GoalInput = ({ addGoalHandler }: AddGoalHandler) => {
         />
         <Button onPress={() => addGoalHandler(enteredGoal)} title="ADD"/>
       </View>
+    </Modal> 
     ) 
 }

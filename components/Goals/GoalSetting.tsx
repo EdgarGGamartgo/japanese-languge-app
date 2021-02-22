@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Modal } from 'react-native';
 import  { 
   GoalInput,
   GoalList
@@ -18,10 +18,16 @@ export const GoalSetting = () => {
     ])
   }
 
+  const removeGoal = (goalId: string) => {
+    setCourseGoals(prevGoals => {
+      return prevGoals.filter(goal => goal.myKey !== goalId)
+    })
+  }
+
   return (
     <View style={GoalSettingStyles.screen}>
       <GoalInput addGoalHandler={addGoalHandler} />
-      <GoalList CourseGoals={courseGoals}/>
+      <GoalList removeGoal={removeGoal} CourseGoals={courseGoals}/>
     </View>
   );
 }
