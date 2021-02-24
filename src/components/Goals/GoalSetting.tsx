@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Modal } from 'react-native';
+import { View } from 'react-native';
 import  { 
   GoalInput,
   GoalList
-} from '../index'
-import { GoalSettingStyles } from '../../styles/index'
-import { Goal } from '../../types/index'
+} from './../index'
+import { GoalSettingStyles } from './../../styles/index'
+import { Goal } from './../../types/index'
 
 export const GoalSetting = () => {
 

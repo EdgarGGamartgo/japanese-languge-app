@@ -1,13 +1,13 @@
 import React from 'react';
 
 import  { 
-  GoalSetting
-} from './src/components/index'
+  GuessNumberContainer
+} from './src/layouts/index'
 
 export default function App() {
 
   return (
-    <GoalSetting/>
+    <GuessNumberContainer/>
   );
   
 }
