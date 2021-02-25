@@ -16,5 +16,26 @@ export const Styles = StyleSheet.create({
     },
     screen: {
         flex: 1
+    },
+    generalScreen: {
+        flex: 1,
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'flex-start'
+    },
+    buttonContainer: {
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
+    },
+    inputContainer: {
+        width: 300,
+        maxWidth: '80%',
+        alignItems: 'center'
+    },
+    title: {
+        fontSize: 20,
+        marginVertical: 10,
     }
 })
