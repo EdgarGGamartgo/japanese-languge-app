@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { GeneralError, GeneralErrorUI } from './src/ErrorBoundaries'
 import  { 
   AuthContainer
 } from './src/layouts'
@@ -8,7 +8,11 @@ import  {
 export default function App() {
 
   return (
-    <AuthContainer/>
+    <GeneralError title="Something went wrong" fallbackUI={GeneralErrorUI} >
+      <>
+       <AuthContainer/>
+      </>
+    </GeneralError>
   );
   
 }
