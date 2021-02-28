@@ -1,14 +1,14 @@
 import React from 'react';
 
 import  { 
-  GuessNumberContainer
-} from './src/layouts/index'
+  AuthContainer
+} from './src/layouts'
 
 
 export default function App() {
 
   return (
-    <GuessNumberContainer/>
+    <AuthContainer/>
   );
   
 }

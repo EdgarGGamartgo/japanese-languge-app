@@ -1,0 +1,13 @@
+# ADDING A THEME EXAMPLE
+
+            {/* <BetterButton active={true}/>
+            <ThemeProvider theme={ButtonTheme}>
+                <Button title="Reset" onPress={() => {}} color="red" />
+            </ThemeProvider>
+            <DefaultButton title="Reset" onPress={() => {}}/>
+            <Heading active={false}>HEADING IS WORKING</Heading>
+            <YourText>MY NAME IS</YourText>
+            <ThemeProvider theme={lightTheme}>
+                <MyText>HELLO</MyText>                
+            </ThemeProvider> */}
+
