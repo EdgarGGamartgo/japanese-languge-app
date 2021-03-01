@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { Header } from './../../components'
 import { Styles } from './../../styles'
 import { LogInScreen } from './../../screens'
 import { ScreenLayout } from './../../types'
+import Spinner from 'react-native-loading-spinner-overlay';
+import { axiosLogin } from './../../axios'
+import { SpinnerStyles } from './../../styles'
 
 export const AuthContainer = () => {
+
+    const [spinner, setSpinner] = useState<boolean>(true)
 
     const [screenLayout, setScreenLayout] = useState<ScreenLayout>({
         title: 'Please log in',
@@ -16,6 +21,10 @@ export const AuthContainer = () => {
         secondButtonTitle: 'Log in'
     })
 
+    useEffect(() => {
+      (async () =>  console.log(await axiosLogin("5")))()
+    }, [])
+
     const handleLogInSignUp = (changedScreenLayout: ScreenLayout) => {
             setScreenLayout(changedScreenLayout)
     }
@@ -24,6 +33,13 @@ export const AuthContainer = () => {
         <View style={Styles.screen} >
             <Header title="Study Tracker" />
             <LogInScreen changeLayout={handleLogInSignUp} layout={screenLayout} />
+            <Spinner
+                visible={spinner}
+                color="white"
+                textContent={'Loading...'}
+                overlayColor="blue"
+                textStyle={SpinnerStyles.spinnerTextStyle}
+                />
         </View>
     )
 }

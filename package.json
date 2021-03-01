@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "pub": "git add . && git commit -m \"Updates\" && git push && git status"
+    "pub": "git add . && git commit -m \"Updates\" && git push && git status",
+    "cache:clean": "npm cache clean --force && expo r -c"
   },
   "jest": {
     "preset": "react-native",
@@ -29,11 +30,15 @@
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$"
   },
   "dependencies": {
+    "@types/react-loader-spinner": "^3.1.3",
+    "@types/react-native-loading-spinner-overlay": "^0.5.2",
     "expo": "~40.0.0",
     "expo-status-bar": "~1.0.3",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-loader-spinner": "^4.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-loading-spinner-overlay": "^2.0.0",
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
@@ -48,6 +53,7 @@
     "@types/react-test-renderer": "^17.0.1",
     "@types/styled-components": "^5.1.7",
     "@types/styled-components-react-native": "^5.1.1",
+    "axios": "^0.21.1",
     "jest": "^26.6.3",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "^17.0.1",
