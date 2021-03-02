@@ -3,6 +3,7 @@ import { View, Text, Button } from 'react-native'
 import { Styles } from './../styles'
 import { InputText } from './../components'
 import { AuthLayout, AuthCredentials } from './../types'
+import { ValidateMinLength } from './../utils'
 
 export const LogInScreen = ({ changeLayout, authRequest, layout = {
     title: 'Please log in',
@@ -70,28 +71,41 @@ export const LogInScreen = ({ changeLayout, authRequest, layout = {
         }))
     }
 
+
     return (
         <View style={Styles.generalScreen}>
             <Text style={Styles.title}>{layout.title}</Text>
             <View style={Styles.inputContainer}>
                 <InputText 
+                    passwordType={false}
                     text={layout.firstText}
                     textHandler={name => handleName(name)}
                     textValue={authCredentials.name}
                     placeHolder="Username"
                 />
+                {
+                    ValidateMinLength(authCredentials.name, 5)
+                    ? <Text style={Styles.warningText}>User name must be at least 5 characters</Text>
+                    : null
+                }
                 <InputText 
+                    passwordType={true}
                     text={layout.secondText}
                     textHandler={password => handlePassword(password)}
                     textValue={authCredentials.password}
                     placeHolder="Password"
                 />
+                {
+                    ValidateMinLength(authCredentials.password, 8)
+                    ? <Text style={Styles.warningText}>Password must be at least 8 characters</Text>
+                    : null
+                }
                 <View style={Styles.buttonContainer}>
-                    <Button color="blue" title={layout.secondButtonTitle} onPress={() => authRequest(authCredentials)} />
+                    <Button disabled={Object.values(authCredentials).includes('')} color="blue" title={layout.secondButtonTitle} onPress={() => authRequest(authCredentials)} />
                 </View>
                 <Text style={{ marginTop: 20, marginBottom: 15 }}>{layout.noticeText}</Text>
                 <View style={Styles.buttonContainer}>
-                    <Button color="blue" title={layout.buttonTitle} onPress={handleLayout} />
+                    <Button  color="blue" title={layout.buttonTitle} onPress={handleLayout} />
                 </View>
             </View>
         </View>

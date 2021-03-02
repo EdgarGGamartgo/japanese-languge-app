@@ -8,9 +8,10 @@ export const GeneralErrorUI: FunctionComponent<FallBackUIProps> = ({ title }) =>
 
     return (
         <View style={Styles.screen} > 
-            <Header title={title} />
-            <Header title="TRY RESTARTING THE APP LATER" />
-            <Button title="Press Here To Reload" onPress={() => DevSettings.reload()} />
+            <Header  title={title} />
+            <View style={{ marginLeft: '25%' , marginTop: 20, width: '50%' }}>
+                <Button color='blue'  title="Press Here To Reload" onPress={() => DevSettings.reload()} />
+            </View>
         </View>
     )
 }

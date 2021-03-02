@@ -2,6 +2,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
 
 export interface AuthInputTextProps {
+    passwordType: boolean
     text: string
     textHandler: (text: string) => void
     textValue: string

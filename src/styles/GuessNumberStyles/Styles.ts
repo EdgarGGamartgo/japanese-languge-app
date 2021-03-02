@@ -45,5 +45,12 @@ export const Styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
+    },
+    warningText: {
+        fontWeight: 'bold',
+        marginTop: 2,
+        marginBottom: 15,
+        color: 'red',
+        fontSize: 10,
     }
 })
