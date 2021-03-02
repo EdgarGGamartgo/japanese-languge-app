@@ -52,5 +52,10 @@ export const Styles = StyleSheet.create({
         marginBottom: 15,
         color: 'red',
         fontSize: 10,
+    },
+    generalText: {
+        fontWeight: 'bold',
+        color: 'black',
+        fontSize: 15,
     }
 })

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { View, Button } from 'react-native'
-import { Header } from './../../components'
+import { View } from 'react-native'
+import { Header, GeneralModal } from './../../components'
 import { Styles } from './../../styles'
 import { LogInScreen } from './../../screens'
 import { ScreenLayout, AuthProps, AuthCredentials } from './../../types'
@@ -15,6 +15,7 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
     const [spinner, setSpinner] = useState<boolean>(false)
     const [serverError, setServerError] = useState<boolean>(false)
     const [screenLayout, setScreenLayout] = useState<ScreenLayout>(initialLogInLayout)
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
 
     const seeParams = () => console.log('Getting props from navigation!!!: ', route.params.userId)
     
@@ -34,12 +35,12 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
             // Success case: Inform user the success in logging in, show the message for 5 secs and change layout
             // to Home Screen
             try {
-                // setSpinner(true)
-                // setTimeout(() => {
-                // setSpinner(false)
-                // navigation.navigate('Home', { userId: '2' })
-                // }, 3000)
-                throw new Error('Error when logging in!!!')
+                 setSpinner(true)
+                 setTimeout(() => {
+                 setSpinner(false)
+                 navigation.navigate('Home', { userId: '2' })
+                 }, 3000)
+                //throw new Error('Error when logging in!!!')
             } catch (e) {
                 console.log(`Error when logging in ${e}`)
                 setServerError(true)
@@ -51,12 +52,12 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
             // parent tree component
         } else if (screenLayout.title === 'Please sign up') {
             try {
-                // setSpinner(true)
-                // setTimeout(() => {
-                // setSpinner(false)
-                // setScreenLayout(initialLogInLayout)
-                // }, 3000)
-                throw new Error('Error when signing in!!!')
+                 setSpinner(true)
+                 setTimeout(() => {
+                 setSpinner(false)
+                 setModalVisible(true)
+                 }, 3000)
+                //throw new Error('Error when signing in!!!')
             } catch (e) {
                 console.log(`Error when signing in ${e}`)
                 setServerError(true)
@@ -70,7 +71,7 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
             // parent tree component 
         }
     }
-
+    //setModalVisible(true)
     return (
         <>
         {
@@ -84,6 +85,16 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
                     textContent={'Loading...'}
                     overlayColor="blue"
                     textStyle={SpinnerStyles.spinnerTextStyle}
+                />
+                <GeneralModal 
+                    modalVisible={modalVisible} 
+                    setModalVisible={() => {
+                        setModalVisible(!modalVisible)
+                        setScreenLayout(initialLogInLayout)
+                    }}
+                    onRequestCloseMsg={"You have signed up successfully. Please log in."}
+                    mainMsg={"You have signed up successfully. Please log in."}
+                    buttonMsg={"Log In"}
                 />
             </View>
             : <GeneralErrorUI title={screenLayout.title === 'Please log in' ? 'Error when logging in' : 'Error when signing up'}/>
