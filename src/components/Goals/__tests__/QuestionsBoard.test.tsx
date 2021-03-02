@@ -16,7 +16,7 @@ test('examples of some things', async () => {
   await waitFor(() => expect(queryByTestId('printed-username')).toBeTruthy())
 
   expect(getByTestId('printed-username').props.children).toBe(
-    famousProgrammerInHistory
+    1
   )
   expect(toJSON()).toMatchSnapshot()
 })

@@ -1,3 +1,6 @@
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/native';
+
 export interface AuthInputTextProps {
     text: string
     textHandler: (text: string) => void
@@ -20,6 +23,28 @@ export interface AuthCredentials {
 }
 
 export interface AuthLayout {
+    authRequest: (authCredentials: AuthCredentials) => void
     layout: ScreenLayout
     changeLayout: (layout: ScreenLayout) => void
 }
+
+type RootStackParamList = {
+    Auth: { userId: string };
+    Home: { userId: string };
+    Feed: { sort: 'latest' | 'top' } | undefined;
+};
+
+type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
+
+type StackParamList = {
+    Home: { userId: string };
+};
+
+
+
+export interface AuthProps  {
+    navigation: StackNavigationProp<StackParamList, 'Home' >;
+    route: HomeScreenRouteProp
+}
+
+

@@ -4,7 +4,7 @@ import { Styles } from './../styles'
 import { InputText } from './../components'
 import { AuthLayout, AuthCredentials } from './../types'
 
-export const LogInScreen = ({ changeLayout, layout = {
+export const LogInScreen = ({ changeLayout, authRequest, layout = {
     title: 'Please log in',
     firstText: 'Enter your user name',
     secondText: 'Enter your password',
@@ -15,7 +15,7 @@ export const LogInScreen = ({ changeLayout, layout = {
 
     // General Error Boundary Test
     // useEffect(() => {
-    //     throw new Error('ANOTHER SUPER HUGE ERROR!!!')
+    //     throw new Error('ANOTHER SUPER HUGE JUST AN!!!')
     // }, [])
 
     const [authCredentials, setAuthCredentials] = useState<AuthCredentials>({
@@ -29,29 +29,6 @@ export const LogInScreen = ({ changeLayout, layout = {
             name: '',
             password: ''
         }))
-    }
-
-    const authRequest = () => {
-        console.log(`userName is: ${authCredentials.name} and password is ${authCredentials.password}`)
-        if (layout.title === 'Please log in') {
-            console.log(`Trigger log in HTTP request`)
-            // Success case: Inform user the success in logging in, show the message for 5 secs and change layout
-            // to Home Screen
-            // Failure case: Inform user if Bad Request due to bad credentials
-            // (less than 8 characters) or error from server 
-            // Note: Server is going to handle error or success cases and the mobile app
-            // will just handle with UI from the server response + the error boundary components in
-            // parent tree component
-        } else if (layout.title === 'Please sign up') {
-            console.log(`Trigger sign up HTTP request`)
-            // Success case: Inform user the success in signing up, show the message for 5 secs and change layout
-            // to Log In Screen
-            // Failure case: Inform user if Bad Request due to already existing credentials or bad credentials
-            // (less than 8 characters) or error from server
-            // Note: Server is going to handle error or success cases and the mobile app
-            // will just handle with UI from the server response + the error boundary components in
-            // parent tree component 
-        }
     }
 
     const handleLayout= () => {
@@ -110,7 +87,7 @@ export const LogInScreen = ({ changeLayout, layout = {
                     placeHolder="Password"
                 />
                 <View style={Styles.buttonContainer}>
-                    <Button color="blue" title={layout.secondButtonTitle} onPress={authRequest} />
+                    <Button color="blue" title={layout.secondButtonTitle} onPress={() => authRequest(authCredentials)} />
                 </View>
                 <Text style={{ marginTop: 20, marginBottom: 15 }}>{layout.noticeText}</Text>
                 <View style={Styles.buttonContainer}>
