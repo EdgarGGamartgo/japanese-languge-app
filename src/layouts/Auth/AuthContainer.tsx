@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { View } from 'react-native'
+import { ScrollView } from 'react-native'
 import { Header, GeneralModal } from './../../components'
 import { Styles } from './../../styles'
 import { LogInScreen } from './../../screens'
@@ -76,7 +76,7 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
         <>
         {
             !serverError
-            ? <View style={Styles.screen} >
+            ? <ScrollView style={Styles.screen} >
                 <Header title="Study Tracker" />
                 <LogInScreen changeLayout={handleLogInSignUp} layout={screenLayout} authRequest={authRequest} />
                 <Spinner
@@ -96,7 +96,7 @@ export const AuthContainer = ({ navigation, route }: AuthProps) => {
                     mainMsg={"You have signed up successfully. Please log in."}
                     buttonMsg={"Log In"}
                 />
-            </View>
+            </ScrollView>
             : <GeneralErrorUI title={screenLayout.title === 'Please log in' ? 'Error when logging in' : 'Error when signing up'}/>
         }
         </>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, Button } from 'react-native'
+import { ScrollView, View, Text, Button } from 'react-native'
 import { HomeProps } from './../../types'
 import Spinner from 'react-native-loading-spinner-overlay';
 import { SpinnerStyles } from './../../styles'
@@ -10,8 +10,7 @@ import { userData, mainMsg } from './../../__mocks__'
 export const HomeScreen = ({ navigation, route }: HomeProps) => {
 
     const [spinner, setSpinner] = useState<boolean>(false)
-    const [studiedTime, setStudiedTime] = useState<string>('0')
-    const [counterTime, setCounterTime] = useState<string>('00:00:00')
+    const [studiedTime, setStudiedTime] = useState<string>('')
 
 
 
@@ -27,14 +26,11 @@ export const HomeScreen = ({ navigation, route }: HomeProps) => {
 
     const addTime = (time: string) => {
         console.log(`Add time is ${time}`)
-    }
-
-    const countTime = (time: string) => {
-        console.log(`Count time is ${time}`)
+        setStudiedTime('')
     }
 
     return (
-        <View style={Styles.screen}>
+        <ScrollView style={Styles.screen}>
             <Header title="Study Tracker" />
             <View style={Styles.generalScreen}>
             <Text style={Styles.title}>Hi {userData.name}!</Text>
@@ -50,16 +46,6 @@ export const HomeScreen = ({ navigation, route }: HomeProps) => {
                 <View style={Styles.buttonContainer}>
                     <Button disabled={false} color="blue" title={"+ADD"} onPress={() => addTime(studiedTime)} />
                 </View>
-                <InputText 
-                    passwordType={false}
-                    text={''}
-                    textHandler={time => setCounterTime(time)}
-                    textValue={counterTime}
-                    placeHolder="00:00:00"
-                />
-                <View style={Styles.buttonContainer}>
-                    <Button disabled={false} color="blue" title={"Count"} onPress={() => countTime(counterTime)} />
-                </View>
                 <View style={{ marginBottom: 25 }}></View>
 
                 <View style={Styles.buttonContainer}>
@@ -74,6 +60,6 @@ export const HomeScreen = ({ navigation, route }: HomeProps) => {
                 overlayColor="blue"
                 textStyle={SpinnerStyles.spinnerTextStyle}
             />
-        </View>
+        </ScrollView>
     )
 }
